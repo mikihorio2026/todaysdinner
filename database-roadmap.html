@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ばんごはんアプリ｜データベース化ロードマップ</title>
+  <link rel="stylesheet" href="css/database-roadmap.css">
+</head>
+<body>
+  <main class="roadmap">
+    <header class="hero">
+      <p class="eyebrow">FUTURE PLAN</p>
+      <h1>ばんごはんアプリを<br>あとから更新できるようにする</h1>
+      <p>
+        今はJavaScriptの配列にレシピを書いている。<br>
+        後期でデータベースを学んだら、管理画面からレシピを追加できるアプリへ育てる。
+      </p>
+    </header>
+
+    <section class="section">
+      <h2>今の仕組み</h2>
+      <div class="flow">
+        <div class="flow__item">JavaScriptに<br>レシピを書く</div>
+        <span aria-hidden="true">→</span>
+        <div class="flow__item">牛肉・大根を<br>選ぶ</div>
+        <span aria-hidden="true">→</span>
+        <div class="flow__item">該当レシピから<br>ランダムで1本表示</div>
+      </div>
+      <p class="note">レシピを増やすたびに、JavaScriptファイルを直接編集する必要がある。</p>
+    </section>
+
+    <section class="section section--accent">
+      <h2>将来の仕組み</h2>
+      <div class="flow">
+        <div class="flow__item">管理画面で<br>レシピを登録</div>
+        <span aria-hidden="true">→</span>
+        <div class="flow__item">データベースに<br>保存</div>
+        <span aria-hidden="true">→</span>
+        <div class="flow__item">ユーザー画面で<br>読み込んで表示</div>
+      </div>
+      <p class="note">URLをコピー＆ペーストして登録するだけで、レシピ候補を増やせるようにする。</p>
+    </section>
+
+    <section class="section">
+      <h2>管理画面で登録する情報</h2>
+      <div class="admin-card">
+        <dl>
+          <div>
+            <dt>料理名</dt>
+            <dd>ユッケジャンクッパ</dd>
+          </div>
+          <div>
+            <dt>メイン食材</dt>
+            <dd>牛肉</dd>
+          </div>
+          <div>
+            <dt>組み合わせ野菜</dt>
+            <dd>大根</dd>
+          </div>
+          <div>
+            <dt>TikTok URL</dt>
+            <dd>https://www.tiktok.com/@momose_gohan/video/7562893456268430610</dd>
+          </div>
+        </dl>
+        <button type="button" disabled>レシピを登録</button>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>データの形</h2>
+      <p>管理画面で入力した内容を、レシピ1件ずつこのような形で保存する。</p>
+      <pre><code>{
+  title: "ユッケジャンクッパ",
+  main: "beef",
+  vegetable: "daikon",
+  videoId: "7562893456268430610"
+}</code></pre>
+    </section>
+
+    <section class="section">
+      <h2>実装する順番</h2>
+      <ol class="steps">
+        <li><span>01</span>データベースを作る</li>
+        <li><span>02</span>ログインできる管理画面を作る</li>
+        <li><span>03</span>レシピ登録フォームを作る</li>
+        <li><span>04</span>ユーザー画面でレシピを取得する</li>
+        <li><span>05</span>選んだ食材に合うレシピをランダム表示する</li>
+      </ol>
+    </section>
+
+    <footer>
+      <a href="dinner.html">← ばんごはんアプリに戻る</a>
+    </footer>
+  </main>
+</body>
+</html>
