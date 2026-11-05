@@ -1,4 +1,4 @@
-body{
+body {
   background-color: #ffffff;
   margin: 0;
   font-family: "RocknRoll One", sans-serif;
@@ -21,10 +21,6 @@ body{
   align-items: center;
   justify-content: center;
   min-height: 100svh;
-}
-legend{
-  font-size: 24px;
-  text-align: center;
 }
 .card-list {
   display: flex;
@@ -54,8 +50,7 @@ fieldset input {
   display: flex;
   flex-direction: column;
 }
-fieldset input:checked + .food-card__content .img-wrapper,
-fieldset input:checked + .img-wrapper {
+fieldset input:checked + .food-card__content .img-wrapper {
   border-color: #bb0701;
 }
 
@@ -70,6 +65,7 @@ fieldset input:checked + .img-wrapper {
   border: 4px solid transparent;
   border-radius: 1000px;
   padding: 16px;
+  transition: border-color 180ms ease;
 }
 .img-wrapper img {
   display: block;
@@ -84,6 +80,7 @@ fieldset input:checked + .img-wrapper {
   align-items: center;
   gap: 8px;
   text-align: center;
+  transition: transform 180ms ease;
 }
 /* 素材名（テキスト） */
 .food-card__name {
@@ -92,8 +89,9 @@ fieldset input:checked + .img-wrapper {
   font-weight: 500;
   line-height: 22px;
 }
-/* タイトル下のspace */
 legend {
+  font-size: 24px;
+  text-align: center;
   margin-bottom: 32px;
 }
 /* --------------------------------------------動画 */
@@ -106,8 +104,8 @@ legend {
   text-align: center;
   font-weight: 400;
   margin: 0 auto 8px;
-
 }
+
 #result iframe {
   display: block;
   width: 80%;
@@ -116,6 +114,7 @@ legend {
   border: 0;
   margin: auto;
 }
+
 .result-actions {
   display: flex;
   gap: 18px;
@@ -153,17 +152,10 @@ legend {
   box-shadow: none;
   color: var(--button-color);
 }
+
 /* --------------------------------------------カードのインタラクション */
 .food-card {
   cursor: pointer;
-}
-
-.food-card__content {
-  transition: transform 180ms ease;
-}
-
-.img-wrapper {
-  transition: border-color 180ms ease;
 }
 
 /* PC：マウスを重ねたとき */

@@ -168,6 +168,10 @@ const recipes = {
     {
       title: "鶏肉と大根のうま煮",
       videoId: "7351696935302008072"
+    },
+    {
+      title: "圧力鍋で簡単サムゲタン風スープ",
+      url: "https://cookpad.com/jp/recipes/19398406"
     }
   ],
 
@@ -241,6 +245,31 @@ function showRecipe(recipe) {
   `);
 }
 
+function showRecipe(recipe) {
+  if (recipe.videoId) {
+    $("#result").html(`
+      <h2>${recipe.title}</h2>
+      <iframe
+        src="https://www.tiktok.com/player/v1/${recipe.videoId}?controls=1&autoplay=0"
+        allow="fullscreen"
+        title="${recipe.title}"
+      ></iframe>
+    `);
+  } else {
+    $("#result").html(`
+      <h2>${recipe.title}</h2>
+      <a
+        class="btneffect recipe-link"
+        href="${recipe.url}"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Cookpadでレシピを見る
+      </a>
+    `);
+  }
+}
+
 // ----------------------------------------------------------------メインから野菜への画面切り替え
 $('input[name="main"]').on("change", function () {
   $("#step-main").removeClass("is-active");
@@ -250,34 +279,22 @@ $('input[name="main"]').on("change", function () {
 
 // ----------------------------------------------------------------材料選択
 $('input[name="sub"]').on("change", function () {
-    //①mainの箱の中に、メイン食材で選択されたものを入れる（牛or豚or鶏）
-    const main = $('input[name="main"]:checked').val();
-    //②subの箱の中に、選択された副菜を入れる（大根orキャベツor...）
-    const sub = $('input[name="sub"]:checked').val();
-    //③combinationの箱の中に、①（選択された肉）とハイフンと②（選択された野菜）の肉野菜セットのコンビ名を入れる
-    const combination = `${main}-${sub}`;
-    //④recipeListの箱の中にレシピ一覧の中から肉野菜セットコンビ名と同一のレシピを入れる
-    const recipeList = recipes[combination];
+  const main = $('input[name="main"]:checked').val();
+  const sub = $('input[name="sub"]:checked').val();
+  const combination = `${main}-${sub}`;
+  const recipeList = recipes[combination];
 
-
-
-    // 候補が1件以上ある場合
   if (recipeList && recipeList.length > 0) {
-    //recipeList に入っているレシピの件数の中から、ランダムな番号を1つ作って randomNumber に入れる（2件なら0か1が入る）
     currentRecipeList = recipeList;
     currentRecipeIndex = Math.floor(Math.random() * currentRecipeList.length);
     $("#another-recipe").prop("disabled", currentRecipeList.length < 2);
-    //recipeの箱の中に、レシピ一覧（1件目もしくは2件目）のレシピを入れる
     showRecipe(currentRecipeList[currentRecipeIndex]);
   } else {
     $("#result").text("この組み合わせのレシピは準備中です。");
   }
 
-  //野菜を非表示にして動画を表示する
-$("#step-sub").removeClass("is-active");
-$("#step-result").addClass("is-active");
-
-
+  $("#step-sub").removeClass("is-active");
+  $("#step-result").addClass("is-active");
 });
 
 // ----------------------------------------------------------------他のレシピを見る
