@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <main class="app">
+    <!-- 画面1：メインを選択 -->
+        <form>
+            <section id="step-main" class="screen is-active">
+                <fieldset class="sozailist">
+                    <legend>メイン食材を選ぶ</legend>
+                    <label>
+                        <input type="radio" name="main" value="beef">
+                        <span class="img-wrapper">
+                            <img src="img/beef.png" alt="牛肉のイラスト">
+                        </span>
+                        <span>牛肉</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="main" value="pork">
+                        <span class="img-wrapper">
+                            <img src="img/pork.png" alt="豚肉のイラスト">
+                        </span>
+                        <span>豚肉</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="main" value="chicken">
+                        <span class="img-wrapper">
+                            <img src="img/chicken.png" alt="鶏肉のイラスト">
+                        </span>
+                        <span>鶏肉</span>
+                    </label>
+                </fieldset>
+            </section>
+
+            <section id="step-sub" class="screen">
+                <fieldset class="sozailist">
+                    <legend>野菜を選ぶ</legend>
+                    <label>
+                        <input type="radio" name="sub" value="daikon">
+                        <span class="img-wrapper">
+                            <img src="img/daikon.png" alt="大根のイラスト">
+                        </span>
+                        <span>大根</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="sub" value="cabbage">
+                        <span class="img-wrapper">
+                            <img src="img/cabbage.png" alt="キャベツのイラスト">
+                        </span>
+                        <span>キャベツ</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="sub" value="broccoli">
+                        <span class="img-wrapper">
+                            <img src="img/broccoli.png" alt="ブロッコリーのイラスト">
+                        </span>
+                        <span>ブロッコリー</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="sub" value="potato">
+                        <span class="img-wrapper">
+                            <img src="img/potato.png" alt="じゃがいものイラスト">
+                        </span>
+                        <span>じゃがいも</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="sub" value="mushroom">
+                        <span class="img-wrapper">
+                            <img src="img/mushroom.png" alt="きのこのイラスト">
+                        </span>
+                        <span>きのこ</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="sub" value="cheese">
+                        <span class="img-wrapper">
+                            <img src="img/cheese.png" alt="チーズのイラスト">
+                        </span>
+                        <span>チーズ</span>
+                    </label>
+                </fieldset>
+            </section>
+        </form>
+        <section id="step-result" class="screen">
+            <!-- iframeはpにはないらないのでdivにする -->
+            <div id="result"></div>
+            <button id="again" type="button">選び直す</button>
+        </section>
+    </main>
+    
+</body>
+</html>

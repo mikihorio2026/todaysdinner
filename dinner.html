@@ -7,93 +7,123 @@
     <title>今日のばんごはん</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/dinner.css">
 </head>
 
 <body>
+    <!-- 背景 -->
+    <video class="bg-video" autoplay muted loop playsinline>
+    <source src="img/stir-fry-pork-cabbage.mp4" type="video/mp4">
+  </video>
     <main class="app">
-        <h1>今日のばんごはん</h1>
         <form>
-            <section id="step-main" class="screen is-active">
-                <fieldset class="sozailist">
-                    <legend>メイン食材を選ぶ</legend>
-                    <label>
-                        <input type="radio" name="main" value="beef">
-                        <span class="img-wrapper">
-                            <img src="img/beef.png" alt="牛肉のイラスト">
-                        </span>
-                        <span>牛肉</span>
-                    </label>
-                    <label>
-                        <input type="radio" name="main" value="pork">
-                        <span class="img-wrapper">
-                            <img src="img/pork.png" alt="豚肉のイラスト">
-                        </span>
-                        <span>豚肉</span>
-                    </label>
-                    <label>
-                        <input type="radio" name="main" value="chicken">
-                        <span class="img-wrapper">
-                            <img src="img/chicken.png" alt="鶏肉のイラスト">
-                        </span>
-                        <span>鶏肉</span>
-                    </label>
+            <!-- 画面1：メイン食材を選ぶ -->
+            <section id="step-main" class="screen is-active" aria-labelledby="main-title">
+                <fieldset class="card-grid">
+                    <legend id="main-title">メインの食材を選ぼう！</legend>
+                    <div class="card-list">
+                        <label class="food-card">
+                            <input type="radio" name="main" value="beef">
+                            <div class="food-card__content">
+                                <span class="food-card__image img-wrapper">
+                                    <img src="img/beef.png" alt="牛肉のイラスト">
+                                </span>
+                                <span class="food-card__name">牛肉</span>
+                            </div>
+                        </label>
+                        <label class="food-card">
+                            <input type="radio" name="main" value="pork">
+                            <div class="food-card__content">
+                                <span class="food-card__image img-wrapper">
+                                    <img src="img/pork.png" alt="豚肉のイラスト">
+                                </span>
+                                <span class="food-card__name">豚肉</span>
+                            </div>
+                        </label>
+                        <label class="food-card">
+                            <input type="radio" name="main" value="chicken">
+                            <div class="food-card__content">
+                                <span class="food-card__image img-wrapper">
+                                    <img src="img/chicken.png" alt="鶏肉のイラスト">
+                                </span>
+                                <span class="food-card__name">鶏肉</span>
+                            </div>
+                        </label>
+                    </div>
                 </fieldset>
             </section>
 
-            <section id="step-sub" class="screen">
-                <fieldset class="sozailist">
-                    <legend>野菜を選ぶ</legend>
-                    <label>
-                        <input type="radio" name="sub" value="daikon">
-                        <span class="img-wrapper">
-                            <img src="img/daikon.png" alt="大根のイラスト">
-                        </span>
-                        <span>大根</span>
-                    </label>
-                    <label>
-                        <input type="radio" name="sub" value="cabbage">
-                        <span class="img-wrapper">
-                            <img src="img/cabbage.png" alt="キャベツのイラスト">
-                        </span>
-                        <span>キャベツ</span>
-                    </label>
-                    <label>
-                        <input type="radio" name="sub" value="broccoli">
-                        <span class="img-wrapper">
-                            <img src="img/broccoli.png" alt="ブロッコリーのイラスト">
-                        </span>
-                        <span>ブロッコリー</span>
-                    </label>
-                    <label>
-                        <input type="radio" name="sub" value="potato">
-                        <span class="img-wrapper">
-                            <img src="img/potato.png" alt="じゃがいものイラスト">
-                        </span>
-                        <span>じゃがいも</span>
-                    </label>
-                    <label>
-                        <input type="radio" name="sub" value="mushroom">
-                        <span class="img-wrapper">
-                            <img src="img/mushroom.png" alt="きのこのイラスト">
-                        </span>
-                        <span>きのこ</span>
-                    </label>
-                    <label>
-                        <input type="radio" name="sub" value="cheese">
-                        <span class="img-wrapper">
-                            <img src="img/cheese.png" alt="チーズのイラスト">
-                        </span>
-                        <span>チーズ</span>
-                    </label>
+            <!-- 画面2：組み合わせる食材を選ぶ -->
+            <section id="step-sub" class="screen" aria-labelledby="sub-title">
+                <fieldset class="card-grid">
+                    <legend id="sub-title">何を組み合わせる？</legend>
+                    <div class="card-list">
+                        <label class="food-card">
+                            <input type="radio" name="sub" value="daikon">
+                            <div class="food-card__content">
+                                <span class="food-card__image img-wrapper">
+                                    <img src="img/daikon.png" alt="大根のイラスト">
+                                </span>
+                                <span class="food-card__name">大根</span>
+                            </div>
+                        </label>
+                        <label class="food-card">
+                            <input type="radio" name="sub" value="potato">
+                            <div class="food-card__content">
+                                <span class="food-card__image img-wrapper">
+                                    <img src="img/potato.png" alt="じゃがいものイラスト">
+                                </span>
+                                <span class="food-card__name">じゃがいも</span>
+                            </div>
+                        </label>
+                        <label class="food-card">
+                            <input type="radio" name="sub" value="broccoli">
+                            <div class="food-card__content">
+                                <span class="food-card__image img-wrapper">
+                                    <img src="img/broccoli.png" alt="ブロッコリーのイラスト">
+                                </span>
+                                <span class="food-card__name">ブロッコリー</span>
+                            </div>
+                        </label>
+                        <label class="food-card">
+                            <input type="radio" name="sub" value="cabbage">
+                            <div class="food-card__content">
+                                <span class="food-card__image img-wrapper">
+                                    <img src="img/cabbage.png" alt="キャベツのイラスト">
+                                </span>
+                                <span class="food-card__name">キャベツ</span>
+                            </div>
+                        </label>
+                        <label class="food-card">
+                            <input type="radio" name="sub" value="mushroom">
+                            <div class="food-card__content">
+                                <span class="food-card__image img-wrapper">
+                                    <img src="img/mushroom.png" alt="きのこのイラスト">
+                                </span>
+                                <span class="food-card__name">きのこ</span>
+                            </div>
+                        </label>
+                        <label class="food-card">
+                            <input type="radio" name="sub" value="cheese">
+                            <div class="food-card__content">
+                                <span class="food-card__image img-wrapper">
+                                    <img src="img/cheese.png" alt="チーズのイラスト">
+                                </span>
+                                <span class="food-card__name">チーズ</span>
+                            </div>
+                        </label>
+                    </div>
                 </fieldset>
             </section>
         </form>
-        <section id="step-result" class="screen">
-            <!-- iframeはpにはないらないのでdivにする -->
+        <!-- 画面3：レシピ動画を表示 -->
+        <section id="step-result" class="screen" aria-live="polite">
             <div id="result"></div>
-            <button id="again" type="button">選び直す</button>
+            <div class="result-actions">
+                <button id="another-recipe" class="btneffect" type="button">他のレシピを見る</button>
+                <button id="choose-again" class="btneffect" type="button">選び直す</button>
+            </div>
         </section>
     </main>
 

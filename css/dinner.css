@@ -1,75 +1,183 @@
 body{
-  background-color: #f0f0f0;
+  background-color: #ffffff;
   margin: 0;
-  font-family: "Zen Maru Gothic", sans-serif;
+  font-family: "RocknRoll One", sans-serif;
+  color: #484848;
 }
+
 .app {
-  width: min(100%, 430px);
+  width: min(100%, 460px);
   min-height: 100svh;
   margin-inline: auto;
-  background-color: #fff;
-}
-h1 {
-  margin: 0;
+  background-color: rgba(255, 255, 255, 0.8);
 }
 .screen {
   display: none;
 }
-
+/* 表示エリアのコンテンツエリアの中央寄せ */
 .screen.is-active {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100svh;
 }
-.sozailist {
+legend{
+  font-size: 24px;
+  text-align: center;
+}
+.card-list {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 16px;
 }
-/* --------------------------------------------素材リスト */
+/* --------------------------------------------背景 */
+.bg-video {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* --------------------------------------------ラジオボタン */
 fieldset input {
   position: absolute;
   opacity: 0;
 }
-fieldset {
+.card-grid {
+  margin: 0;
+  padding: 0;
   border: none;
-    display: flex;
-  gap: 16px;
+  display: flex;
+  flex-direction: column;
 }
+fieldset input:checked + .food-card__content .img-wrapper,
 fieldset input:checked + .img-wrapper {
   border-color: #bb0701;
 }
-/* --------------------------------------------画像 */
+
+/* --------------------------------------------素材カード */
 .img-wrapper {
   display: flex;
-  width: 120px;
-  height: 120px;
+  width: 130px;
+  height: 130px;
   box-sizing: border-box;
   align-items: center;
   justify-content: center;
-  border: 3px solid transparent;
-  border-radius: 12px;
-  padding: 20px;
+  border: 4px solid transparent;
+  border-radius: 1000px;
+  padding: 16px;
 }
-
 .img-wrapper img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: contain;
 }
-
+/* カードと素材名（テキスト） */
+.food-card__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+/* 素材名（テキスト） */
+.food-card__name {
+  color: #484848;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 22px;
+}
+/* タイトル下のspace */
+legend {
+  margin-bottom: 32px;
+}
 /* --------------------------------------------動画 */
-#step-result {
+#result {
   width: 100%;
 }
+#result h2 {
+  color: #484848;
+  font-size: 18px;
+  text-align: center;
+  font-weight: 400;
+  margin: 0 auto 8px;
 
-.video-wrapper {
-  width: 100%;
-  aspect-ratio: 9 / 16;
 }
-
-.video-wrapper iframe {
+#result iframe {
   display: block;
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  aspect-ratio: 9 / 16;
+  height: auto;
   border: 0;
+  margin: auto;
+}
+.result-actions {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+}
+/* --------------------------------------------ボタンのインタラクション */
+
+.btneffect {
+  --button-color:green;
+
+  padding: 8px 32px;
+  border: 2px solid var(--button-color);
+  border-radius: 16px;
+  background-color: #fff;
+  color: var(--button-color);
+  font-size: 16px;
+  margin-top: 12px;
+
+  transition:
+    box-shadow 300ms ease-in-out,
+    color 300ms ease-in-out;
+}
+
+.btneffect:hover {
+  box-shadow: 0 0 40px 40px var(--button-color) inset;
+  color: #fff;
+}
+
+.btneffect:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.btneffect:disabled:hover {
+  box-shadow: none;
+  color: var(--button-color);
+}
+/* --------------------------------------------カードのインタラクション */
+.food-card {
+  cursor: pointer;
+}
+
+.food-card__content {
+  transition: transform 180ms ease;
+}
+
+.img-wrapper {
+  transition: border-color 180ms ease;
+}
+
+/* PC：マウスを重ねたとき */
+@media (hover: hover) {
+  .food-card:hover .img-wrapper {
+    border-color: green;
+  }
+}
+
+/* PCクリック中・スマホのタップ中 */
+.food-card:active .food-card__content {
+  transform: scale(0.96);
+}
+
+.food-card:active .img-wrapper {
+  border-color: #bb0701;
 }
