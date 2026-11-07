@@ -168,10 +168,6 @@ const recipes = {
     {
       title: "鶏肉と大根のうま煮",
       videoId: "7351696935302008072"
-    },
-    {
-      title: "圧力鍋で簡単サムゲタン風スープ",
-      url: "https://cookpad.com/jp/recipes/19398406"
     }
   ],
 
@@ -243,31 +239,6 @@ function showRecipe(recipe) {
       title="${recipe.title}"
     ></iframe>
   `);
-}
-
-function showRecipe(recipe) {
-  if (recipe.videoId) {
-    $("#result").html(`
-      <h2>${recipe.title}</h2>
-      <iframe
-        src="https://www.tiktok.com/player/v1/${recipe.videoId}?controls=1&autoplay=0"
-        allow="fullscreen"
-        title="${recipe.title}"
-      ></iframe>
-    `);
-  } else {
-    $("#result").html(`
-      <h2>${recipe.title}</h2>
-      <a
-        class="btneffect recipe-link"
-        href="${recipe.url}"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Cookpadでレシピを見る
-      </a>
-    `);
-  }
 }
 
 // ----------------------------------------------------------------メインから野菜への画面切り替え
